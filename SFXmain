@@ -40,7 +40,7 @@ Credits:Button{
 	Name = "Discord",
 	Description = "",
 	Callback = function()
-        setclipboard("Sus#0587")
+        setclipboard("https://discord.gg/Q2pT2kYyJT")
      end
 }
 
