@@ -157,7 +157,7 @@ Mobs:Slider{
 	Name = "Custom Kill Speed",
 	Default = 50,
 	Min = 10,
-	Max = 70,
+	Max = 0,
 	Callback = function(func)
 	    _G.CustomKillSpeed = func
 	   end
@@ -272,7 +272,7 @@ function SlowKill(func)
                             sword = character:FindFirstChild("Sword")
                             end
                                 local dist = (humanoidrootpart.Position - v.Position + Vector3.new(-1, 1, 2)).magnitude
-                                local tweenspeed = dist/tonumber(_G.CustomKillSpeed or 60)
+                                local tweenspeed = dist/tonumber(_G.CustomKillSpeed or 30)
                                 local info = TweenInfo.new(tonumber(tweenspeed), Enum.EasingStyle.Linear)
                                 if _G.slowKill and character:WaitForChild("Sword") then
                                     game:GetService("TweenService"):Create(humanoidrootpart, info, {CFrame = CFrame.new(v.Position + Vector3.new(-1, 1, 3))}):Play()
@@ -434,3 +434,5 @@ function Teleport(Place)
     end
 end
 Start()
+
+
