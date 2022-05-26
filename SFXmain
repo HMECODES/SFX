@@ -182,9 +182,18 @@ Mobs:Toggle{
 }
 
 Base:Toggle{
-	Name = "Toggle Make Swords",
+	Name = "Faster Machines!",
 	StartingState = false,
-	Description = "WIP",
+	Description = "Makes The Machines Faster",
+	Callback = function(func)
+        FireClickSpawn(func)
+	   end
+}
+
+Base:Toggle{
+	Name = "Faster Ascender",
+	StartingState = false,
+	Description = "Makes The Ascender Faster",
 	Callback = function(func)
         FireClickSpawn(func)
 	   end
@@ -239,12 +248,9 @@ end
 function FireClickSpawn(func)
     local FireClick = func
 	    while FireClick do task.wait()
-	        for i,v in pairs(base.ItemMachine.SpawnItem:WaitForChild("ClickDetector")) do
-		        if FireClick then
-		            fireclickdetector(v)
-	                task.wait(2)
-	            end
-	        end
+	        _G.Spawn = 1
+            task.wait(1)
+            _G.Spawn = 0
 	    end
 end
 
