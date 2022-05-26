@@ -1,4 +1,8 @@
-
+--[[
+    CopyRight Hack 2022
+    Copying Might Insult A Sue
+    Stay Tuned Skid
+]]
 
 --https://raw.githubusercontent.com/deeeity/mercury-lib/master/src.lua
 local Mercury = loadstring(game:HttpGet("https://raw.githubusercontent.com/HMECODES/customLib/main/MecurySFX"))() --Custom Lib
@@ -8,9 +12,10 @@ local char = player.Character
 local human = char:FindFirstChild("HumanoidRootPart")
 local base
 local basePos
+_G.version = "0.1.1a"
 
 local GUI = Mercury:Create{
-    Name = "Sword factory X",
+    Name = _G.version,
     Size = UDim2.fromOffset(600, 400),
     Theme = Mercury.Themes.Rust,
     Link = "(Script Remake By Hacky Team) | Website: gethacky.online | Current Page: "
@@ -41,6 +46,7 @@ Credits:Button{
 	Description = "",
 	Callback = function()
         setclipboard("https://discord.gg/Q2pT2kYyJT")
+        print("copied to clipboard")
      end
 }
 
@@ -83,6 +89,14 @@ Misc:Button{
 	Description = "Equip a sword",
 	Callback = function()
 	    EquipSword()
+	 end
+}
+
+Misc:Button{
+	Name = "FORCE SHUTDOWN",
+	Description = "Only use when emergency issues",
+	Callback = function()
+	    game:ShutDown()
 	 end
 }
 
@@ -176,9 +190,19 @@ Base:Toggle{
 	   end
 }
 
+Base:Button{
+	Name = "Tp To Ascender",
+	Description = "Ascender goes brrrrrrrrr",
+	Callback = function()
+         Teleport("Ascender")
+    end
+}
+
+
 
 
 function Start()
+    print("Loading script" .. "CODE:200")
     repeat task.wait() until game:IsLoaded()
         for i,v in pairs(game:GetService("Workspace"):GetDescendants()) do task.wait(5)
             if v.Name == player.Name.. "'s" .. " Base" then
@@ -187,6 +211,7 @@ function Start()
             else
         end
     end
+    print("Done!, Welcome To My Script!")
 end
 
 function LoadGame()
@@ -393,13 +418,13 @@ game:GetService("Players").LocalPlayer.Idled:connect(function()
    wait(1)
    vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
 end)
-print("working")
+print("AFK BYPASSER working")
 end
 
 
-
-
-
-
-
+function Teleport(Place)
+    if Place == "Ascender" then
+        player.Character.HumanoidRootPart.CFrame = CFrame.new(Base.Ascender.Pad.CFrame)
+    end
+end
 Start()
