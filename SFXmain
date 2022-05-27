@@ -12,7 +12,7 @@ local char = player.Character
 local human = char:FindFirstChild("HumanoidRootPart")
 local base
 local basePos
-_G.version = "0.2.2"
+_G.version = "0.3.9"
 
 local GUI = Mercury:Create{
     Name = _G.version,
@@ -199,13 +199,65 @@ Base:Toggle{
 	   end
 }
 
-Base:Button{
-	Name = "Tp To Ascender",
-	Description = "Ascender goes brrrrrrrrr",
-	Callback = function()
-         Teleport("Ascender")
-    end
+Base:Textbox{
+	Name = "Auto Upgrades",
+	Callback = function(text) end
 }
+
+Base:Toggle{
+	Name = "Auto Upgrade Molder",
+	StartingState = false,
+	Description = "Molder Vroooom",
+	Callback = function(func)
+        upgrademold(func)
+	   end
+}
+
+Base:Toggle{
+	Name = "Auto Upgrade Polisher",
+	StartingState = false,
+	Description = "Polisher Vroooom",
+	Callback = function(func)
+        upgradequa(func)
+	   end
+}
+
+Base:Toggle{
+	Name = "Auto Upgrade Classifier",
+	StartingState = false,
+	Description = "Classifier Vroooom",
+	Callback = function(func)
+        upgradeclass(func)
+	   end
+}
+
+Base:Toggle{
+	Name = "Auto Upgrade Upgrader",
+	StartingState = false,
+	Description = "Upgrader Vroooom",
+	Callback = function(func)
+        upgradelevel(func)
+	   end
+}
+
+Base:Toggle{
+	Name = "Auto Upgrade Enchanter",
+	StartingState = false,
+	Description = "Enchanter Vroooom",
+	Callback = function(func)
+        upgradeenhant(func)
+	   end
+}
+
+Base:Toggle{
+	Name = "Auto Upgrade Appraiser",
+	StartingState = false,
+	Description = "Appraiser Vroooom",
+	Callback = function(func)
+        upgraderarity(func)
+	   end
+}
+
 
 
 
@@ -252,6 +304,108 @@ function FireClickSpawn(func)
             task.wait(1)
             _G.Spawn = 0
 	    end
+end
+
+function upgradeclass(func)
+    _G.class = func
+    while _G.class do
+        local args = {
+            [1] = "UpgradeServer",
+            [2] = "Upgrade",
+            [3] = {
+                [1] = "Classifier",
+                [2] = 1
+            }
+        }
+        
+        game:GetService("ReplicatedStorage").Framework.RemoteFunction:InvokeServer(unpack(args))        
+        wait()
+    end
+end
+
+function upgrademold(func)
+    _G.mold = func
+    while _G.mold do
+        local args = {
+            [1] = "UpgradeServer",
+            [2] = "Upgrade",
+            [3] = {
+                [1] = "Molder",
+                [2] = 1
+            }
+        }
+        
+        game:GetService("ReplicatedStorage").Framework.RemoteFunction:InvokeServer(unpack(args))        
+        wait()
+    end
+end
+
+function upgradequa(func)
+    _G.class = func
+    while _G.class do
+        local args = {
+            [1] = "UpgradeServer",
+            [2] = "Upgrade",
+            [3] = {
+                [1] = "Polisher",
+                [2] = 1
+            }
+        }
+        
+        game:GetService("ReplicatedStorage").Framework.RemoteFunction:InvokeServer(unpack(args))        
+        wait()
+    end
+end
+
+function upgradelevel(func)
+    _G.level = func
+    while _G.level do
+        local args = {
+            [1] = "UpgradeServer",
+            [2] = "Upgrade",
+            [3] = {
+                [1] = "Upgrader",
+                [2] = 1
+            }
+        }
+        
+        game:GetService("ReplicatedStorage").Framework.RemoteFunction:InvokeServer(unpack(args))        
+        wait()
+    end
+end
+
+function upgradeenhant(func)
+    _G.enchant = func
+    while _G.enchant do
+        local args = {
+            [1] = "UpgradeServer",
+            [2] = "Upgrade",
+            [3] = {
+                [1] = "Enchanter",
+                [2] = 1
+            }
+        }
+        
+        game:GetService("ReplicatedStorage").Framework.RemoteFunction:InvokeServer(unpack(args))        
+        wait()
+    end
+end
+
+function upgraderarity(func)
+    _G.class = func
+    while _G.class do
+        local args = {
+            [1] = "UpgradeServer",
+            [2] = "Upgrade",
+            [3] = {
+                [1] = "Appraiser",
+                [2] = 1
+            }
+        }
+        
+        game:GetService("ReplicatedStorage").Framework.RemoteFunction:InvokeServer(unpack(args))        
+        wait()
+    end
 end
 
 function SlowKill(func)
