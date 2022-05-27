@@ -155,9 +155,9 @@ Mobs:Toggle{
 
 Mobs:Slider{
 	Name = "Custom Kill Speed",
-	Default = 50,
+	Default = 30,
 	Min = 10,
-	Max = 0,
+	Max = 50,
 	Callback = function(func)
 	    _G.CustomKillSpeed = func
 	   end
