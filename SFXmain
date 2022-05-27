@@ -12,7 +12,7 @@ local char = player.Character
 local human = char:FindFirstChild("HumanoidRootPart")
 local base
 local basePos
-_G.version = "0.2.1"
+_G.version = "0.2.2"
 
 local GUI = Mercury:Create{
     Name = _G.version,
