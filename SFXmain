@@ -14,13 +14,13 @@ local char = player.Character
 local human = char:FindFirstChild("HumanoidRootPart")
 local base
 local basePos
-_G.version = "0.3.9b"
+_G.version = "0.4.0a"
 
 local GUI = Mercury:Create{
     Name = _G.version,
     Size = UDim2.fromOffset(600, 400),
     Theme = Mercury.Themes.Rust,
-    Link = "(Script Remake By Hacky Team) | Website: gethacky.online | Current Page: "
+    Link = "(Script Made By Hacky Team) | Website: gethacky.online | Current Page: "
 }
 
 local Misc = GUI:Tab{
@@ -139,7 +139,7 @@ Mobs:Button{
 Mobs:Toggle{
 	Name = "Auto Kill Fast",
 	StartingState = false,
-	Description = "Auto kill Noobs *Extremely Fast [Could Lag]*",
+	Description = "[PATCHED] Maybe A fix later",
 	Callback = function(func)
 		FastKill(func)
 	end
@@ -149,7 +149,7 @@ Mobs:Toggle{
 Mobs:Toggle{
 	Name = "Custom Auto Kill",
 	StartingState = false,
-	Description = "For non paid exploits, thanks to VertigoCool#1636",
+	Description = "Customizable Auto Kill",
 	Callback = function(func)
         SlowKill(func)
 	   end
@@ -159,7 +159,7 @@ Mobs:Slider{
 	Name = "Custom Kill Speed",
 	Default = 30,
 	Min = 10,
-	Max = 50,
+	Max = 40,
 	Callback = function(func)
 	    _G.CustomKillSpeed = func
 	   end
