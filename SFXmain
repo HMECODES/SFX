@@ -1,7 +1,9 @@
 --[[
-    CopyRight Hack 2022
-    Copying Might Insult A Sue
-    Stay Tuned Skid
+
+CopyRight Hack 2022
+Copying Might Insult A Sue
+Stay Tuned Skid
+
 ]]
 
 --https://raw.githubusercontent.com/deeeity/mercury-lib/master/src.lua
@@ -12,7 +14,7 @@ local char = player.Character
 local human = char:FindFirstChild("HumanoidRootPart")
 local base
 local basePos
-_G.version = "0.3.9"
+_G.version = "0.3.9b"
 
 local GUI = Mercury:Create{
     Name = _G.version,
@@ -289,7 +291,7 @@ for i = 1,6 do task.wait(0.13)
 end
 
 for i = 1,6 do task.wait(0.13)
-    human.CFrame = CFrame.new(-30000, 150, -30000)
+    human.CFrame = CFrame.new(-11333.126, 481.554169, -17802.8965, 0.515536904, -3.36661685e-08, 0.856867373, 1.42318981e-07, 1, -4.63368366e-08, -0.856867373, 1.4583685e-07, 0.515536904)
 end
 
 for i = 1,6 do task.wait(0.13)
@@ -581,12 +583,6 @@ end)
 print("AFK BYPASSER working")
 end
 
-
-function Teleport(Place)
-    if Place == "Ascender" then
-        player.Character.HumanoidRootPart.CFrame = CFrame.new(Base.Ascender.Pad.CFrame)
-    end
-end
 Start()
 
 
