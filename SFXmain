@@ -14,7 +14,7 @@ local char = player.Character
 local human = char:FindFirstChild("HumanoidRootPart")
 local base
 local basePos
-_G.version = "0.4.0a"
+_G.version = "0.4.1"
 
 local GUI = Mercury:Create{
     Name = _G.version,
@@ -188,7 +188,7 @@ Base:Toggle{
 	StartingState = false,
 	Description = "Makes The Machines Faster",
 	Callback = function(func)
-        FireClickSpawn(func)
+        print("xd")
 	   end
 }
 
@@ -196,6 +196,15 @@ Base:Toggle{
 	Name = "Faster Ascender",
 	StartingState = false,
 	Description = "Makes The Ascender Faster",
+	Callback = function(func)
+        print("xd")
+	   end
+}
+
+Base:Toggle{
+	Name = "Auto Spawn Sword",
+	StartingState = false,
+	Description = "Auto Spawns Sword",
 	Callback = function(func)
         FireClickSpawn(func)
 	   end
@@ -265,7 +274,7 @@ Base:Toggle{
 
 
 function Start()
-    print("Loading script" .. "CODE:200")
+    print("Loading script " .. "CODE:200")
     repeat task.wait() until game:IsLoaded()
         for i,v in pairs(game:GetService("Workspace"):GetDescendants()) do task.wait(5)
             if v.Name == player.Name.. "'s" .. " Base" then
@@ -278,34 +287,33 @@ function Start()
 end
 
 function LoadGame()
-for i = 1,6 do task.wait(0.13)
+for i = 1,6 do task.wait(0.2)
    human.CFrame = CFrame.new(-6288.94385, 162.55864, 8499.83594, 0.231872797, -0.0734502003, -0.969969094, 0.000552227371, 0.997154951, -0.0753768161, 0.972745955, 0.01694219, 0.231253669)
 end
 
-for i = 1,6 do task.wait(0.13)
+for i = 1,6 do task.wait(0.2)
     human.CFrame = CFrame.new(11277.168, 204.807587, -3667.82349, -0.40060851, -0.519929707, 0.754444122, 6.7476816e-07, 0.82340467, 0.567454636, -0.916249335, 0.227327675, -0.329862565)
 end
 
-for i = 1,6 do task.wait(0.13)
+for i = 1,6 do task.wait(0.2)
     human.CFrame = CFrame.new(-16364.1611, 174.973221, -3617.48218, 0.998290896, 0.0510689467, -0.0284123886, -7.67811855e-07, 0.48618713, 0.873854697, 0.058440581, -0.872361183, 0.485356241)
 end
 
-for i = 1,6 do task.wait(0.13)
+for i = 1,6 do task.wait(0.2)
     human.CFrame = CFrame.new(-11333.126, 481.554169, -17802.8965, 0.515536904, -3.36661685e-08, 0.856867373, 1.42318981e-07, 1, -4.63368366e-08, -0.856867373, 1.4583685e-07, 0.515536904)
 end
 
-for i = 1,6 do task.wait(0.13)
+for i = 1,6 do task.wait(0.2)
     human.CFrame = basePos + Vector3.new(0, 6, 0)
     end
 end
 
 function FireClickSpawn(func)
-    local FireClick = func
-	    while FireClick do task.wait()
-	        _G.Spawn = 1
-            task.wait(1)
-            _G.Spawn = 0
-	    end
+    _G.a = func
+    while _G.a == true do
+        fireclickdetector(base.ItemMachine.SpawnItem.ClickDetector)
+        wait(.1)
+    end
 end
 
 function upgradeclass(func)
